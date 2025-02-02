@@ -16,7 +16,7 @@
 
 <div class="min-h-screen flex items-center justify-center bg-gray-100">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 class="text-2xl font-semibold text-center mb-6">Регистрация</h2>
+        <h2 class="text-2xl font-semibold text-center mb-6">Вход</h2>
         <form method="POST" action="{{ route('login') }}">
             @csrf 
             <div class="mb-4">
