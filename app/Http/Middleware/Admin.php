@@ -16,13 +16,13 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->type == 0)
-        {
-            return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->type == 0) {
+                return $next($request);
+            } else {
+                return back();
+            }
         }
-        else
-        {
-            return back();
-        }
+        return redirect()->route('login');
     }
 }

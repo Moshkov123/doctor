@@ -35,27 +35,25 @@
                                         </thead>
                                         <tbody>
                                             @foreach($users as $user)
-                                                <form method="POST"
-                                                    action="{{ route('users.update', ['id' => $user->id]) }}">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <tr class="border-b bg-neutral-100">
-                                                        <td class="whitespace-nowrap px-6 py-4">
-                                                            {{ $user->id }}
-                                                        </td>
-                                                        <td class="whitespace-nowrap px-6 py-4">
-                                                            {{ $user->name }}
-                                                        </td>
-                                                        <td class="whitespace-nowrap px-6 py-4">
-                                                            {{ $user->email }}
-                                                        </td>
-                                                        <td class="whitespace-nowrap px-6 py-4">{{ $user->type }}</td>
-                                                        <td class="whitespace-nowrap px-6 py-4">
-                                                            <button type="submit"
-                                                                class=" text-white font-bold py-2 px-4 rounded"
-                                                                style=" background-color: #4299e1;">редактировать</button>
-                                                        </td>
-                                                    </tr>
+                                                <tr class="border-b bg-neutral-100">
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        {{ $user->id }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        {{ $user->name }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        {{ $user->email }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $user->type }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        <a href="{{ route('users.edit', $user->id) }}"
+                                                            class="text-white font-bold py-2 px-4 rounded"
+                                                            style="background-color: #4299e1;">
+                                                            Редактировать
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                                 </form>
                                             @endforeach
                                 </div>

@@ -25,6 +25,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::middleware(['admin'])->group(function () {
 Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/users', [UsersController::class, 'index']);
-Route::get('/users', [UsersController::class, 'index'])->name('users.update');
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit'); 
+Route::put('/users/{id}', [UsersController::class, 'update'])->name('users.update');
 });

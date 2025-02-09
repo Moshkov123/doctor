@@ -13,5 +13,8 @@
 </head>
 <body>
 <x-header />
+<div class="flex center">
+<img src="{{ asset('img/kandinsky.png') }}" class="w-full">
+</div>
 </body>
 </html>
