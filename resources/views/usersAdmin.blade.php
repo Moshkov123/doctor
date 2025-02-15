@@ -30,6 +30,7 @@
                                                 <th scope="col" class="px-6 py-4">id</th>
                                                 <th scope="col" class="px-6 py-4">имя</th>
                                                 <th scope="col" class="px-6 py-4">email</th>
+                                                <th scope="col" class="px-6 py-4">роле id</th>
                                                 <th scope="col" class="px-6 py-4">кнопка</th>
                                             </tr>
                                         </thead>

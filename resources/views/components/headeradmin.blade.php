@@ -5,7 +5,7 @@
         <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-700">Клиника</a>
       </div>
         
-          <div class="flex space-x-8"><a href="{{ url('/') }}" class="text-gray-700 hover:text-gray-900">Записи</a></div>
+          <div class="flex space-x-8"><a href="{{ url('/admin') }}" class="text-gray-700 hover:text-gray-900">Записи</a></div>
           <div class="flex space-x-8"><a href="{{ url('/users') }}" class="text-gray-700 hover:text-gray-900">пользователи</a></div>
 
       </div>

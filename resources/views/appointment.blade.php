@@ -21,11 +21,11 @@
                     <img src="{{ asset('img/kandinsky-download-1739103820167.png') }}" alt="{{ $user->name }}"
                         class="w-full h-48 object-cover rounded-t-lg mb-4">
                     <h2 class="text-xl font-semibold">{{ $user->name }}</h2>
-                    <p class="text-gray-600">{{ $user->type ?? 'Специальность не указана' }}</p>
-                    <button data-doctor-id="{{ $user->id }}" data-modal-toggle="appointmentModal"
-                        class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        Записаться
-                    </button>
+                    <p class="text-gray-600">{{ $user->specialty }}</p> 
+                    <a href="{{ route('record.show', $user->id) }}" 
+                    class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Записаться
+                </a>
                 </div>
             @endforeach
         </div>
