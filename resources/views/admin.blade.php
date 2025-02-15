@@ -13,5 +13,45 @@
 </head>
 <body>
 <x-headeradmin />
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6">Все записи</h1>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b">ID</th>
+                    <th class="px-4 py-2 border-b">Дата и время</th>
+                    <th class="px-4 py-2 border-b">Пациент</th>
+                    <th class="px-4 py-2 border-b">Врач</th>
+                    <th class="px-4 py-2 border-b">кнопка</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($records as $record)
+                <tr>
+                    <td class="px-4 py-2 border-b">{{ $record->id }}</td>
+                    <td class="px-4 py-2 border-b">{{ $record->data }}</td>
+                    <td class="px-4 py-2 border-b">{{ $record->user->name }}</td>
+                    <td class="px-4 py-2 border-b">{{ $record->doctor->name }}</td>
+                    <td class="px-4 py-2 border-b"> @if($record->status === 0)
+                <!-- Кнопка для изменения статуса -->
+                <form action="{{ route('admin.updateStatus', $record->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Выполнить прием
+                    </button>
+                </form></td>
+            @else
+                <!-- Если статус уже равен 1 -->
+                <span class="text-green-600 font-bold">Прием выполнен</span>
+            @endif
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
 </body>
 </html>

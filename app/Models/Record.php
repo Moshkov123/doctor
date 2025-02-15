@@ -11,6 +11,12 @@ class Record extends Model
 
     public function user(): BelongsTo
     {
-        return $this->BelongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id');
+    }
+
+    // Связь с врачом (к кому записались)
+    public function doctor(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'doctors_id');
     }
 }

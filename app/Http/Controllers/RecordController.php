@@ -32,8 +32,13 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'datetime' => 'required|date',
+            'doctor_id' => 'required|exists:users,id',
+        ]);
+    
         $user = Auth::user();
-
+    
         // Проверяем, что пользователь имеет тип 4 и его id не совпадает с id врача
         if ($user->type === 4 && $user->id != $request->doctor_id) {
             // Проверяем, есть ли уже запись к этому врачу на указанное время
@@ -51,6 +56,7 @@ class RecordController extends Controller
                 'data' => $request->datetime,
                 'users_id' => $user->id,
                 'doctors_id' => $request->doctor_id,
+                'status' => 0, 
             ]);
     
             return redirect()->route('dashboard')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Record;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,15 @@ class UserController extends Controller
 {
     public function index(){
         $user = auth()->user();
-    
+       if($user->type === 4){
+        $records = Record::where('users_id', $user->id)
+        ->with('doctor') // Загружаем связанные данные о враче
+        ->get();
+       }else{
+        $records = Record::where('doctors_id', $user->id)
+        ->with('user') // Загружаем связанные данные о враче
+        ->get();
+       }
         $id = $user->id;
         $name = $user->name;
         $email = $user->email;
@@ -18,6 +27,8 @@ class UserController extends Controller
             'id' => $id,
             'name' => $name,
             'email' => $email,
+            'records' => $records,
+            'userType' => $user->type,
         ]);
     }
 

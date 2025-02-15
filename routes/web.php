@@ -30,6 +30,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::middleware(['admin'])->group(function () {
 Route::get('/admin', [AdminController::class, 'index']);
+Route::post('/admin/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit'); 
 Route::put('/users/{id}', [UsersController::class, 'update'])->name('users.update');
